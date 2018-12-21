@@ -24,10 +24,12 @@
     "redux-devtools-extension": "^2.13.7",
     "serve": "^10.1.1",
     "standard": "^12.0.1",
+    "url-loader": "^1.1.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "babel-plugin-codegen": "^3.0.0",
     "lodash": "^4.17.11",
     "react": "^16.7.0-alpha.2",

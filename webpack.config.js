@@ -23,7 +23,8 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
-      { test: /\.ttf$/, loader: 'file-loader?prefix=fonts/' }
+      { test: /majorMonoDisplayRegular\.ttf$/, loader: 'url-loader?prefix=fonts/' },
+      { test: /robotoLight\.ttf$/, loader: 'file-loader?prefix=fonts/' }
     ]
   },
   plugins: [new CleanPlugin(['dist']), htmlPlugin]

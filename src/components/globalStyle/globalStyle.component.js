@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import MajorMonoDisplay from '../../assets/fonts/majorMonoDisplay/MajorMonoDisplay-Regular.ttf'
-import Roboto from '../../assets/fonts/roboto/Roboto-Light.ttf'
+import MajorMonoDisplay from '../../assets/fonts/majorMonoDisplay/majorMonoDisplayRegular.ttf'
+import Roboto from '../../assets/fonts/roboto/robotoLight.ttf'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

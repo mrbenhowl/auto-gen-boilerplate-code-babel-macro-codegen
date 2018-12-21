@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import GlobalStyle from '../globalStyle'
-import TaskListHeading from '../taskListHeading'
-import AddTask from '../addTask'
-import Tasks from '../tasks'
+
+import { TaskListLoading, TaskListHeadingWrapperLoading } from './app.styles'
+
+const TaskListHeading = lazy(() => import('../taskListHeading')) 
+const AddTask = lazy(() => import('../addTask')) 
+const Tasks = lazy(() => import('../tasks'))
+
+const TaskListHeadingLoading = () => (
+  <TaskListHeadingWrapperLoading>
+    <TaskListLoading/>
+  </TaskListHeadingWrapperLoading>
+)
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
 
-      <TaskListHeading />
+      <Suspense fallback={<TaskListHeadingLoading/>}>
+        <TaskListHeading />
+      </Suspense>
 
-      <AddTask />
-
-      <Tasks />
+      <Suspense fallback={<div />}>
+        <AddTask />
+        <Tasks />
+      </Suspense>
     </>
   )
 }
