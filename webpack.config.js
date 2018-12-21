@@ -22,7 +22,8 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      }
+      },
+      { test: /\.ttf$/, loader: 'file-loader?prefix=fonts/' }
     ]
   },
   plugins: [new CleanPlugin(['dist']), htmlPlugin]

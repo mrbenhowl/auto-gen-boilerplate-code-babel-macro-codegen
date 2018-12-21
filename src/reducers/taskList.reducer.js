@@ -1,18 +1,18 @@
-let count = 0
+const initialState = { count: 0, tasks: [] }
 
-export default function taskListReducer (state = [], action = {}) {
+export default function taskListReducer (state = initialState, action = {}) {
   switch (action.type) {
     case types.ADD_TASK:
-      const id = count++
-      return state.concat([
-        {
-          id,
-          description: action.description
-        }
-      ])
+      const newState = { ...state }
+      newState.count++
+      newState.tasks = newState.tasks.concat({
+        id: newState.count,
+        description: action.description
+      })
+      return newState
+    default:
+      return state
   }
-
-  return state
 }
 
 const types = {
@@ -28,5 +28,7 @@ export const actions = {
 }
 
 export const selectors = {
-  getTasks: state => state.taskListReducer
+  getTasks: state => {
+    return state.taskListReducer.tasks
+  }
 }
