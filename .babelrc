@@ -8,5 +8,5 @@
       }
     ]
   ],
-  "plugins": ["codegen"]
+  "plugins": ["codegen", "babel-plugin-styled-components"]
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 import Task from '../task'
-import { Wrapper } from './tasks.styles'
+import { Wrapper, Grid } from './tasks.styles'
 
-const Tasks = (props) => (
+const Tasks = props => (
   <Wrapper>
-    {props.tasks.map(task => (
-      <Task key={task.id}>{task.description}</Task>
-    ))}
+    <Grid>
+      {props.tasks.map(task => (
+        <Task key={task.id}>{task.description}</Task>
+      ))}
+    </Grid>
   </Wrapper>
 )
 
