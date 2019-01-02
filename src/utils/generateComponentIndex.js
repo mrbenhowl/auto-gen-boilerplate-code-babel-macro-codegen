@@ -1,6 +1,6 @@
 /**
  * @description parses the directory supplied as an argument and generates relevant
- *              imports / export statements dependencing on directory contents for
+ *              imports / export statements depending on directory contents for
  *              a component
  * @param {__dirname} directory (pass Node.js __dirname)
  */
