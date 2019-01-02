@@ -19,10 +19,11 @@ export const TextArea = styled.textarea`
   overflow-y: scroll;
   height: 40px;
   position: absolute;
+  pointer-events: none;
 `
 
 export const Bin = styled(DeleteBin)`  
   position: absolute;
   top: 8px;
-  right: 8px;  
+  right: 20px;  
 `
