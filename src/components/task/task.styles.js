@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import DeleteBin from '../deleteBin'
 
 export const Wrapper = styled.div`
   max-width: 100%;  
@@ -20,12 +21,8 @@ export const TextArea = styled.textarea`
   position: absolute;
 `
 
-export const Bin = styled.div`
-  background: url('./src/assets/svg/icons8-trash-can-filled.svg');
-  height: 24px;
-  width: 24px;
+export const Bin = styled(DeleteBin)`  
   position: absolute;
   top: 8px;
-  right: 8px;
-  cursor: pointer;
+  right: 8px;  
 `
