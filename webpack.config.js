@@ -23,7 +23,7 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
-      { test: /\.svg$/, loader: 'svg-url-loader' },
+      { test: /\.svg$/, loader: 'svg-url-loader?prefix=svg/' },
       {
         test: /majorMonoDisplayRegular\.ttf$/,
         loader: 'url-loader?prefix=fonts/'
