@@ -23,7 +23,11 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
-      { test: /majorMonoDisplayRegular\.ttf$/, loader: 'url-loader?prefix=fonts/' },
+      { test: /\.svg$/, loader: 'svg-url-loader' },
+      {
+        test: /majorMonoDisplayRegular\.ttf$/,
+        loader: 'url-loader?prefix=fonts/'
+      },
       { test: /robotoLight\.ttf$/, loader: 'file-loader?prefix=fonts/' }
     ]
   },

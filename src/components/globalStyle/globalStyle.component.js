@@ -12,17 +12,13 @@ const GlobalStyle = createGlobalStyle`
     src: url(${Roboto});
   }
   body {
-    margin: 0;    
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+    margin: 0;        
     background-color: #cae7df;  
     color: #000;
   }
-  input {
+  input, textarea, button, p, a {
     font-family: Roboto, Arial, Helvetica, sans-serif;
-  }
-  button {
-    font-family: Roboto, Arial, Helvetica, sans-serif;
-  }
+  }  
 `
 
 export default GlobalStyle

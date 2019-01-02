@@ -22,7 +22,6 @@ export const InputWrapper = styled.span`
     margin-bottom: 0px;
     margin-right: 10px;
   }
-
 `
 
 export const Input = styled.input`

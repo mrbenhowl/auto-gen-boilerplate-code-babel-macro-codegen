@@ -5,13 +5,11 @@ export const Wrapper = styled.div`
   justify-content: center;
 `
 
-export const Grid = styled.div` 
-  width: 100%;
-  margin: 5px;
-
+export const Grid = styled.div`   
+  width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 10px;
+  grid-gap: 15px;  
 
   @media (min-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
