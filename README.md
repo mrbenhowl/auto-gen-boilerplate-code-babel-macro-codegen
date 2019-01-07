@@ -1,9 +1,3 @@
 # Medium.com blog post
 
-TODO:
-
-- README
-- Github pages - link to website deployed
-- Tags
-- Link to article
-- Fix flickering styling when first task is created
+https://medium.com/@mrbenhowl/auto-generating-boilerplate-javascript-at-build-time-using-babel-plugin-codegen-dc039ccf53f2
