@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 `
 
 export const TextArea = styled.textarea`
+  display: block;
   width: 100%;
   box-sizing: border-box;
   min-height: 80px;
@@ -22,7 +23,7 @@ export const Content = styled.div`
   border: 0;
   background-color: ${props => (props.showOptions ? 'transparent' : 'white')};
   box-sizing: border-box;
-  min-height: 100%;
+  min-height: 80px;
   padding: 10px;
   transition: background-color .2s ease-in;
 `
