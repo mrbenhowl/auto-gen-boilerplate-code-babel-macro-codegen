@@ -1,6 +1,6 @@
 import findIndex from 'lodash.findIndex'
 
-const initialState = { count: 0, tasks: [] }
+const initialState = { count: 0, tasks: [], currentTaskId: null }
 
 export default function taskListReducer (state = initialState, action = {}) {
   switch (action.type) {
@@ -15,14 +15,24 @@ export default function taskListReducer (state = initialState, action = {}) {
     }
     case types.UPDATE_TASK: {
       const newState = { ...state, tasks: [...state.tasks] }
-      const indexOfTaskToUpdate = findIndex(newState.tasks, task => task.id === action.id)
+      const indexOfTaskToUpdate = findIndex(
+        newState.tasks,
+        task => task.id === action.id
+      )
       newState.tasks[indexOfTaskToUpdate].description = action.description
       return newState
     }
     case types.DELETE_TASK: {
       const newState = { ...state, tasks: [...state.tasks] }
-      const indexOfTaskToDelete = findIndex(newState.tasks, task => task.id === action.id)
+      const indexOfTaskToDelete = findIndex(
+        newState.tasks,
+        task => task.id === action.id
+      )
       newState.tasks.splice(indexOfTaskToDelete, 1)
+      return newState
+    }
+    case types.SET_CURRENT_TASK: {
+      const newState = { ...state, currentTaskId: action.id }
       return newState
     }
     default: {
@@ -34,7 +44,8 @@ export default function taskListReducer (state = initialState, action = {}) {
 const types = {
   ADD_TASK: 'taskList/ADD_TASK',
   DELETE_TASK: 'taskList/DELETE_TASK',
-  UPDATE_TASK: 'taskList/UPDATE_TASK'
+  UPDATE_TASK: 'taskList/UPDATE_TASK',
+  SET_CURRENT_TASK: 'taskList/SET_CURRENT_TASK'
 }
 
 export const actions = {
@@ -50,11 +61,14 @@ export const actions = {
   deleteTask: id => ({
     type: types.DELETE_TASK,
     id
+  }),
+  setCurrentTask: id => ({
+    type: types.SET_CURRENT_TASK,
+    id
   })
 }
 
 export const selectors = {
-  getTasks: state => {
-    return state.taskListReducer.tasks
-  }
+  getTasks: ({ taskListReducer }) => taskListReducer.tasks,
+  getCurrentTaskId: ({ taskListReducer }) => taskListReducer.currentTaskId
 }

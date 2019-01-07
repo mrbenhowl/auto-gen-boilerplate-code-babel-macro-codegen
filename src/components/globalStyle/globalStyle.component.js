@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #cae7df;  
     color: #000;
   }
-  input, textarea, button, p, a {
+  input, textarea, button, p, a, div {
     font-family: Roboto, Arial, Helvetica, sans-serif;
   }  
 `

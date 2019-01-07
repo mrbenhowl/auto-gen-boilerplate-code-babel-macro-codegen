@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production",
     "deploy": "yarn build && gh-pages -d dist",
-    "lint": "yarn standard --fix"
+    "lint": "yarn standard --parser 'babel-eslint' --fix"
   },
   "license": "MIT",
   "devDependencies": {
@@ -33,6 +33,7 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.1",
     "lodash.findindex": "^4.6.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",

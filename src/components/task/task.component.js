@@ -1,27 +1,71 @@
-import React, { useState } from 'react'
-import { Wrapper, TextArea, Bin } from './task.styles'
+import React, { useState, useEffect } from 'react'
+import EditPencil from '../editPencil'
+import DeleteBin from '../deleteBin'
+import {
+  Wrapper,
+  TextArea,
+  Content,
+  TaskDescription,
+  Options
+} from './task.styles'
 
-const Task = ({ id, description, updateDescription, deleteTask }) => {
-  const [showDelete, setShowDelete] = useState(false)
+const Task = ({
+  description,
+  id,
+  updateTask,
+  deleteTask,
+  setCurrentTask,
+  currentTaskId
+}) => {
+  const [showOptions, setShowOptions] = useState(false)
+  const [allowEdit, setAllowEdit] = useState(false)
+
+  useEffect(
+    () => {
+      if (currentTaskId !== id) {
+        if (showOptions) {
+          setShowOptions(false)
+        }
+        if (allowEdit) {
+          setAllowEdit(false)
+        }
+      }
+    },
+    [currentTaskId]
+  )
 
   return (
     <Wrapper
-      onMouseOver={() => {
-        setShowDelete(true)
-      }}
-      onMouseLeave={() => {
-        setShowDelete(false)
+      showOptions={showOptions}
+      onClick={() => {
+        setShowOptions(true)
+        setCurrentTask(id)
       }}
     >
-      <TextArea
-        value={description}
-        onChange={event => updateDescription(event.target.value, id)}
-        onBlur={() => setShowDelete(false)}
-        onClick={() => {
-          setShowDelete(true)
-        }}
-      />
-      {showDelete && <Bin onClick={() => deleteTask(id)} />}
+      {!allowEdit && (
+        <Content showOptions={showOptions}>
+          {!showOptions && <TaskDescription>{description}</TaskDescription>}
+          {showOptions && (
+            <Options>
+              <EditPencil onClick={setAllowEdit} />
+              <DeleteBin
+                onClick={() => {
+                  deleteTask(id)
+                }}
+              />
+            </Options>
+          )}
+        </Content>
+      )}
+
+      {allowEdit && (
+        <TextArea
+          value={description}
+          onChange={e => {
+            updateTask(e.target.value, id)
+          }}
+        />
+      )}
     </Wrapper>
   )
 }
