@@ -5,7 +5,7 @@ const initialState = { count: 0, tasks: [], currentTaskId: null }
 export default function taskListReducer (state = initialState, action = {}) {
   switch (action.type) {
     case types.ADD_TASK: {
-      const newState = { ...state }
+      const newState = { ...state, currentTaskId: null }
       newState.count++
       newState.tasks = newState.tasks.concat({
         id: newState.count,
