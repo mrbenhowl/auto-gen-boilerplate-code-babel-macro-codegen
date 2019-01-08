@@ -41,5 +41,5 @@ module.exports = directory => {
   } else {
     generatedLinesOfCode.push(`export default ${componentNamePascalCase};`)
   }
-  return generatedLinesOfCode.map(line => line).join(' ')
+  return generatedLinesOfCode.join(' ')
 }
